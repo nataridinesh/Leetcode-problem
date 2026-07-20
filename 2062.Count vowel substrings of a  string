@@ -1,0 +1,30 @@
+class Solution {
+    public int countVowelSubstrings(String word) {
+        int count = 0;
+        
+        for (int i = 0; i < word.length(); i++) {
+            Set<Character> uniqueVowels = new HashSet<>();
+            for (int j = i; j < word.length(); j++) {
+                char ch = word.charAt(j);
+                
+                
+                if (isVowel(ch)) {
+                    uniqueVowels.add(ch);
+                    
+                    if (uniqueVowels.size() == 5) {
+                        count++;
+                    }
+                } else {
+                    break; 
+                }
+            }
+        }
+        
+        return count;
+    }
+    
+    
+    private boolean isVowel(char ch) {
+        return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
+    }
+}
